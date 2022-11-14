@@ -14,7 +14,6 @@ const App = () => {
   const [dispName, setDispName] = useState("");
   const [showProfile, setShowProfile] = useState(false);
 
-
   useEffect(() => {
     getUserDetails()
   }, []);

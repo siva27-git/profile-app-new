@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import dateFormat from "dateformat";
-import logo from "./user-default-avatar.jpg";
+import logo from "../assets/user-default-avatar.jpg";
 
 const Header = () => {
   const current = new Date();
