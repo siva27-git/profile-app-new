@@ -11,13 +11,13 @@ import Button from "@mui/material/Button";
 const Profile = (props) => {
 
   const { userData = {}, displayNameFunction, mobileNoFunction, getUserDetails } = props;
-  const [firstName, setFirstName] = useState(userData.firstName || "")
-  const [lastName, setLastName] = useState(userData.lastName || "")
-  const [displayName, setDisplayName] = useState(userData.displayName || "")
-  const [email, setEmail] = useState(userData.email || "")
-  const [phone1, setPhone1] = useState(userData.phone1 || "")
-  const [phone2, setPhone2] = useState(userData.phone2 || "")
-  const [location, setLocation] = useState(userData.location || "")
+  const [firstName, setFirstName] = useState(userData.firstName || "");
+  const [lastName, setLastName] = useState(userData.lastName || "");
+  const [displayName, setDisplayName] = useState(userData.displayName || "");
+  const [email, setEmail] = useState(userData.email || "");
+  const [phone1, setPhone1] = useState(userData.phone1 || "");
+  const [phone2, setPhone2] = useState(userData.phone2 || "");
+  const [location, setLocation] = useState(userData.location || "");
 
   const styles = {
     marginLeft: "300px",
@@ -79,7 +79,7 @@ const Profile = (props) => {
           data: data
         };
         await axios(config);
-        window.location.reload(false)
+        props.refreshProfile()
       }
       else {
         console.log("Validation error !")
@@ -91,8 +91,7 @@ const Profile = (props) => {
   };
 
   const onReset = () => {
-    getUserDetails()
-    window.location.reload(false)
+    props.refreshProfile()
   };
 
   return (

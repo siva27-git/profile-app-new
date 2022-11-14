@@ -12,17 +12,26 @@ const App = () => {
   const [userData, setUserData] = useState({});
   const [mobileNo, setMobileNo] = useState("");
   const [dispName, setDispName] = useState("");
+  const [showProfile, setShowProfile] = useState(false);
+
 
   useEffect(() => {
     getUserDetails()
   }, []);
 
+  const refreshProfile = async () => {
+    setShowProfile(false);
+    await getUserDetails()
+    setShowProfile(true)
+  };
+
   const getUserDetails = async () => {
     return await axios.get("http://localhost:8000/getUser")
       .then((response) => {
-        setUserData(response.data)
-        setMobileNo(response.data.phone1)
-        setDispName(response.data.displayName)
+        setUserData(response.data);
+        setMobileNo(response.data.phone1);
+        setDispName(response.data.displayName);
+        setShowProfile(true);
       })
       .catch((error) => console.log(error))
   };
@@ -37,15 +46,13 @@ const App = () => {
 
   return (
     <div>
-      {
-        userData && userData.firstName &&
-        <>
-          <Header />
-          <Menu />
-          <Profile userData={userData} displayNameFunction={displayNameFunction} mobileNoFunction={mobileNoFunction} getUserDetails={getUserDetails} />
-          <Photo dispName={dispName} mobileNo={mobileNo} />
-        </>
-      }
+      <>
+        <Header />
+        <Menu />
+        {showProfile && <Profile userData={userData} displayNameFunction={displayNameFunction} mobileNoFunction={mobileNoFunction} getUserDetails={getUserDetails} refreshProfile={refreshProfile} />}
+        <Photo dispName={dispName} mobileNo={mobileNo} />
+      </>
+
     </div>
   );
 };
