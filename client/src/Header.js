@@ -35,7 +35,7 @@ const Header = () => {
         <Typography
           variant="subtitle1"
           color="outline"
-          sx={{ color: "black", fontSize: 13, fontWeight: "bold" }}
+          sx={{ color: "black", fontSize: 13, fontWeight: "bold", marginLeft : "47px" }}
           noWrap
         >
           Good Morning, Adam
@@ -48,6 +48,8 @@ const Header = () => {
             color: "grey",
             fontSize: 11,
             fontWeight: "normal",
+            marginLeft: 4,
+            marginTop: "-36px"
           }}
           noWrap
         >

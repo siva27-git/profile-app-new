@@ -2,7 +2,10 @@ import profile from "./profile.png";
 
 import Typography from "@mui/material/Typography";
 
-const Photo = () => {
+const Photo = (props) => {
+
+  const { dispName = "", mobileNo = "" } = props || {}
+
   const stylesPhoto = {
     marginLeft: "80%",
     marginTop: "-385px",
@@ -19,7 +22,7 @@ const Photo = () => {
         sx={{ color: "black", fontWeight: "bold" }}
         noWrap
       >
-        Rudhved Rithulan
+        {dispName}
       </Typography>
       <Typography
         variant="subtitle1"
@@ -27,7 +30,7 @@ const Photo = () => {
         sx={{ color: "black", fontSize: 13, fontWeight: "normal" }}
         noWrap
       >
-        Good Morning, Adam
+        {mobileNo}
       </Typography>
     </div>
   );

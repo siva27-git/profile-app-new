@@ -61,7 +61,7 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <>
-    <ListItemButton sx={{ paddingTop: 10 }}>
+    <ListItemButton sx={{ paddingTop: 15 }}>
       <ListItemIcon>
         <LogoutIcon />
       </ListItemIcon>
